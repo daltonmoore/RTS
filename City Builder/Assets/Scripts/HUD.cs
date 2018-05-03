@@ -5,20 +5,19 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public Button houseButton;
-    public GameObject housePrefab, temp;
+    public Building building = new Building();
+    public Button houseButton, barracksButton;
+    public GameObject housePrefab, barracksPrefab, temp;
 
     private void Start()
     {
         houseButton.onClick.AddListener(constructHouse);
+        barracksButton.onClick.AddListener(constructBarracks);
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-
-        }
+        
         if(temp!=null)
         {
             Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
@@ -38,5 +37,10 @@ public class HUD : MonoBehaviour
     void constructHouse()
     {
         temp = Instantiate(housePrefab);
+    }
+
+    void constructBarracks()
+    {
+        temp = Instantiate(barracksPrefab);
     }
 }
