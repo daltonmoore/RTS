@@ -4,26 +4,31 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class Unit : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     public bool moving;
     public Vector3 endpos;
-
     Rigidbody2D rigid;
+    float maxSpeed = 7;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(moving)
         {
-            transform.position = Vector3.MoveTowards(transform.position,endpos + new Vector3(0,0,10), .3f);
-            if(transform.position == endpos)
+            rigid.AddForce(((Vector2)endpos - (Vector2)transform.position).normalized * 200);
+            if (rigid.velocity.magnitude > maxSpeed)
+            {
+                rigid.velocity = Vector3.ClampMagnitude(rigid.velocity, maxSpeed);
+            }
+            if(Vector2.Distance(transform.position, endpos)<=.5f)
             {
                 moving = false;
+                rigid.velocity = Vector2.zero;
             }
         }
     }

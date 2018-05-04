@@ -6,9 +6,9 @@ using System.Text;
 using UnityEngine;
 
 
-class UnitSelectionComponent : MonoBehaviour
+public class UnitSelectionComponent : MonoBehaviour
 {
-    public Unit[] army;
+    public List<Unit> army = new List<Unit>();
     List<Unit> selected = new List<Unit>();
     bool isSelecting = false;
     Vector3 mousePosition1;
@@ -59,28 +59,31 @@ class UnitSelectionComponent : MonoBehaviour
 
     void iterateThroughArmy()
     {
-        foreach (var item in army)
+        if (army.Count > 0)
         {
-            if (IsWithinSelectionBounds(item.gameObject))
+            foreach (var item in army)
             {
-                selected.Add(item);
-                foreach (Transform child in item.transform)
+                if (IsWithinSelectionBounds(item.gameObject))
                 {
-                    if (child.gameObject.name == "SelectionCircle")
+                    selected.Add(item);
+                    foreach (Transform child in item.transform)
                     {
-                        child.gameObject.SetActive(true);
-                            
+                        if (child.gameObject.name == "SelectionCircle")
+                        {
+                            child.gameObject.SetActive(true);
+
+                        }
                     }
                 }
-            }
-            else
-            {
-                selected.Remove(item);
-                foreach (Transform child in item.transform)
+                else
                 {
-                    if (child.gameObject.name == "SelectionCircle")
+                    selected.Remove(item);
+                    foreach (Transform child in item.transform)
                     {
-                        child.gameObject.SetActive(false);
+                        if (child.gameObject.name == "SelectionCircle")
+                        {
+                            child.gameObject.SetActive(false);
+                        }
                     }
                 }
             }

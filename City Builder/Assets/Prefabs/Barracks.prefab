@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4103098313213390}
   - component: {fileID: 212576379229118008}
-  - component: {fileID: 114425705830429500}
   - component: {fileID: 61570328653787214}
+  - component: {fileID: 114836025704106452}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &114425705830429500
+--- !u!114 &114836025704106452
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1876482950304254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1925e5713f64a5b4198f797a818e9d17, type: 3}
+  m_Script: {fileID: 11500000, guid: e91087171ad751c4e88ad630cf359dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212576379229118008

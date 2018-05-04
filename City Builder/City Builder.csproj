@@ -284,7 +284,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
+    <Compile Include="Assets\Scripts\Observer.cs" />
+    <Compile Include="Assets\Scripts\Subject.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitSelectionComponent.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
